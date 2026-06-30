@@ -1,29 +1,30 @@
-const servicios = [
+const secciones = [
     {
-        cat: "Acabados",
-        items: [
-            { nombre: "Aplanados y Yeso", fotos: ["IMG_4872.jpeg", "IMG_4873.jpeg", "IMG_4874.jpeg"] },
-            { nombre: "Pintura y Texturizados", fotos: ["IMG_4875.jpeg", "IMG_4877.jpeg", "IMG_4878.jpeg"] },
-            { nombre: "Pisos y Azulejos", fotos: ["IMG_4879.jpeg", "IMG_4880.jpeg", "IMG_4881.jpeg"] }
-        ]
+        nombre: "Acabados",
+        servicios: ["Aplanados de yeso y mortero", "Pasta y texturizados", "Pintura vinílica, esmalte e industrial", "Pintura térmica", "Impermeabilización", "Instalación de tablaroca, plafones y cielos falsos", "Piso cerámico, Porcelanato, Loseta", "Piso SPC, vinílico y laminado", "Zoclos", "Azulejo para baños y cocinas", "Fachadas, Cantera y piedra natural", "Selladores y juntas", "Carpintería", "Cancelería de aluminio, Cristales y espejos", "Herrería y Soldadura", "Instalación de puertas y ventanas"]
+    },
+    {
+        nombre: "Instalaciones",
+        servicios: ["Instalaciones eléctricas", "Instalaciones hidráulicas", "Instalaciones sanitarias"]
+    },
+    {
+        nombre: "Obra Civil",
+        servicios: ["Losas de concreto", "Firmes de concreto", "Banquetas y guarniciones", "Pavimentos de concreto", "Muros de block y ladrillo", "Castillos, cadenas y dalas", "Columnas y trabes", "Estructuras de concreto", "Demoliciones", "Obra civil en general"]
     }
 ];
 
-const container = document.getElementById('catalogo');
-
-servicios.forEach(sec => {
-    let html = `<div class="categoria-box"><div class="cat-titulo">${sec.cat}</div><div class="carrusel">`;
-    
-    sec.items.forEach(item => {
+const main = document.getElementById('catalogo');
+secciones.forEach(sec => {
+    let html = `<div class="seccion"><h2 class="titulo-seccion">${sec.nombre}</h2><div class="grid-servicios">`;
+    sec.servicios.forEach(s => {
         html += `
             <div class="card">
-                <img src="${item.fotos[0]}" alt="${item.nombre}">
-                <p>${item.nombre}</p>
-                <a href="https://wa.me/5281XXXXXXXX" class="btn-cotizar">Cotizar</a>
+                <img src="IMG_4888.jpeg" alt="${s}">
+                <h3>${s}</h3>
+                <a href="https://wa.me/5281XXXXXXXX" class="btn-cotizar">Cotizar por WhatsApp</a>
             </div>
         `;
     });
-    
     html += `</div></div>`;
-    container.innerHTML += html;
+    main.innerHTML += html;
 });
