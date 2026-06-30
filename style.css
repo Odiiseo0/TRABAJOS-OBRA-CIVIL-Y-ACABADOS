@@ -1,10 +1,14 @@
-body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #d1d1d1; margin: 0; padding: 20px; }
-.logo { width: 180px; display: block; margin: 0 auto 20px; }
-header { text-align: center; margin-bottom: 40px; }
-.container { max-width: 900px; margin: auto; }
-.categoria { background: #161616; margin-bottom: 15px; border-radius: 8px; overflow: hidden; border: 1px solid #333; }
-.cat-titulo { padding: 15px; background: #202020; font-weight: bold; color: #ffd700; cursor: pointer; }
-.lista-servicios { padding: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.card { background: #1c1c1c; padding: 10px; border-radius: 5px; text-align: center; }
-img { width: 100%; height: 100px; object-fit: cover; border-radius: 3px; }
-.btn-wpp { display: block; margin-top: 8px; padding: 8px; background: #25D366; color: white; text-decoration: none; border-radius: 4px; font-size: 0.8em; }
+body { font-family: sans-serif; background: #f9f9f9; color: #333; margin: 0; padding: 20px; }
+.logo { width: 180px; display: block; margin: 0 auto; }
+header { text-align: center; margin-bottom: 30px; }
+h1 { font-size: 1.5rem; margin-top: 10px; }
+
+.categoria-box { background: white; padding: 20px; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.cat-titulo { font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; color: #000; border-left: 4px solid #000; padding-left: 10px; }
+
+/* Carrusel Horizontal */
+.carrusel { display: flex; overflow-x: auto; gap: 15px; padding-bottom: 10px; }
+.card { min-width: 200px; background: #fff; border: 1px solid #eee; border-radius: 10px; overflow: hidden; text-align: center; }
+.carrusel img { width: 100%; height: 150px; object-fit: cover; }
+.card p { font-weight: bold; margin: 10px 0; font-size: 0.9rem; }
+.btn-cotizar { display: block; margin: 0 10px 10px; padding: 10px; background: #000; color: white; text-decoration: none; border-radius: 5px; }
