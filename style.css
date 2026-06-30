@@ -1,0 +1,10 @@
+body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #d1d1d1; margin: 0; padding: 20px; }
+.logo { width: 180px; display: block; margin: 0 auto 20px; }
+header { text-align: center; margin-bottom: 40px; }
+.container { max-width: 900px; margin: auto; }
+.categoria { background: #161616; margin-bottom: 15px; border-radius: 8px; overflow: hidden; border: 1px solid #333; }
+.cat-titulo { padding: 15px; background: #202020; font-weight: bold; color: #ffd700; cursor: pointer; }
+.lista-servicios { padding: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.card { background: #1c1c1c; padding: 10px; border-radius: 5px; text-align: center; }
+img { width: 100%; height: 100px; object-fit: cover; border-radius: 3px; }
+.btn-wpp { display: block; margin-top: 8px; padding: 8px; background: #25D366; color: white; text-decoration: none; border-radius: 4px; font-size: 0.8em; }
