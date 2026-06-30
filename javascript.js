@@ -1,33 +1,29 @@
-const secciones = [
+const servicios = [
     {
-        titulo: "Acabados Residenciales y Comerciales",
-        items: ["Aplanados de yeso y mortero", "Pasta y texturizados", "Pintura vinílica y esmalte", "Pintura industrial y térmica", "Impermeabilización", "Tablaroca, Plafones y Cielos falsos", "Piso cerámico, Porcelanato y Loseta", "Piso SPC, vinílico y laminado", "Zoclos", "Azulejo para baños y cocinas", "Fachadas, Cantera y piedra", "Selladores y juntas", "Carpintería", "Cancelería de aluminio, Cristales y espejos", "Herrería y Soldadura", "Instalación de puertas y ventanas"]
-    },
-    {
-        titulo: "Instalaciones Especializadas",
-        items: ["Instalaciones eléctricas", "Instalaciones hidráulicas", "Instalaciones sanitarias"]
-    },
-    {
-        titulo: "Obra Civil y Estructuras",
-        items: ["Losas y Firmes de concreto", "Banquetas y guarniciones", "Pavimentos", "Muros de block y ladrillo", "Castillos, cadenas y dalas", "Columnas y trabes", "Estructuras de concreto", "Demoliciones y Obra civil general"]
+        cat: "Acabados",
+        items: [
+            { nombre: "Aplanados y Yeso", fotos: ["IMG_4872.jpeg", "IMG_4873.jpeg", "IMG_4874.jpeg"] },
+            { nombre: "Pintura y Texturizados", fotos: ["IMG_4875.jpeg", "IMG_4877.jpeg", "IMG_4878.jpeg"] },
+            { nombre: "Pisos y Azulejos", fotos: ["IMG_4879.jpeg", "IMG_4880.jpeg", "IMG_4881.jpeg"] }
+        ]
     }
 ];
 
-const catalogo = document.getElementById('catalogo');
+const container = document.getElementById('catalogo');
 
-secciones.forEach(sec => {
-    let htmlItems = sec.items.map(item => `
-        <div class="card">
-            <img src="IMG_4888.jpeg" alt="${item}">
-            <p>${item}</p>
-            <a href="https://wa.me/5281XXXXXXXX" class="btn-wpp">Cotizar</a>
-        </div>
-    `).join('');
-
-    catalogo.innerHTML += `
-        <div class="categoria">
-            <div class="cat-titulo">${sec.titulo}</div>
-            <div class="lista-servicios">${htmlItems}</div>
-        </div>
-    `;
+servicios.forEach(sec => {
+    let html = `<div class="categoria-box"><div class="cat-titulo">${sec.cat}</div><div class="carrusel">`;
+    
+    sec.items.forEach(item => {
+        html += `
+            <div class="card">
+                <img src="${item.fotos[0]}" alt="${item.nombre}">
+                <p>${item.nombre}</p>
+                <a href="https://wa.me/5281XXXXXXXX" class="btn-cotizar">Cotizar</a>
+            </div>
+        `;
+    });
+    
+    html += `</div></div>`;
+    container.innerHTML += html;
 });
