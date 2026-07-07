@@ -11,15 +11,22 @@ const servicios = [
 
 const container = document.getElementById('catalogo');
 
-servicios.forEach(s => {
-    // Creamos el carrusel de imágenes
-    let carruselHTML = s.fotos.map(foto => `<img src="${foto}" class="carrusel-img">`).join('');
-    
-    container.innerHTML += `
-        <div class="card">
-            <h3>${s.titulo}</h3>
-            <div class="carrusel">${carruselHTML}</div>
-            <a href="https://wa.me/5281XXXXXXXX" class="btn-cotizar">Cotizar</a>
-        </div>
-    `;
-});
+function renderizarCatalogo() {
+    servicios.forEach(servicio => {
+        const carruselHTML = servicio.fotos
+            .map(foto => `<img src="${foto}" alt="${servicio.titulo}" class="carrusel-img">`)
+            .join('');
+
+        const card = `
+            <article class="card">
+                <h3>${servicio.titulo}</h3>
+                <div class="carrusel">${carruselHTML}</div>
+                <a href="https://wa.me/5281XXXXXXXX" class="btn-cotizar" target="_blank">Cotizar por WhatsApp</a>
+            </article>
+        `;
+        
+        container.insertAdjacentHTML('beforeend', card);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', renderizarCatalogo);
