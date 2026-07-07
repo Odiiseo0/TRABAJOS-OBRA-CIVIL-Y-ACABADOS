@@ -21,7 +21,7 @@ function renderizarCatalogo() {
             <article class="card">
                 <h3>${servicio.titulo}</h3>
                 <div class="carrusel">${carruselHTML}</div>
-                <a href="https://wa.me/5281XXXXXXXX" class="btn-cotizar" target="_blank">Cotizar por WhatsApp</a>
+                <a href="https://wa.me/528188683570" class="btn-cotizar" target="_blank">Cotizar por WhatsApp</a>
             </article>
         `;
         
