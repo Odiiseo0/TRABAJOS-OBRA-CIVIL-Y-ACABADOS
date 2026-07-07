@@ -5,7 +5,7 @@ const servicios = [
     },
     {
         titulo: "Pintura y Texturizados",
-        fotos: ["IMG_4878.jpeg", "IMG_4879.jpeg", "IMG_4880.jpeg", "IMG_4881.jpeg", "IMG_4872.jpeg"]
+        fotos: ["IMG_4878.jpeg", "IMG_4879.jpeg", "IMG_4880.jpeg", "IMG_4881.jpeg"]
     }
 ];
 
