@@ -1,25 +1,66 @@
-/* Carrusel horizontal */
-.carrusel {
-    display: flex;
-    overflow-x: auto; /* Esto permite deslizar a los lados */
-    gap: 10px;
-    padding-bottom: 10px;
-    scroll-snap-type: x mandatory; /* Para que el scroll sea fluido */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    color: #333;
 }
 
-.carrusel-img {
-    min-width: 280px; /* Tamaño de cada foto en el carrusel */
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    scroll-snap-align: center;
+header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-/* Tarjeta contenedora */
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
 .card {
     background: white;
     border-radius: 15px;
-    padding: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin: 0 auto 30px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.carrusel {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+}
+
+.carrusel-img {
+    min-width: 280px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    scroll-snap-align: start;
+    border: 1px solid #eee;
+}
+
+.btn-cotizar {
+    display: block;
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #25d366;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-cotizar:hover {
+    background-color: #1ebe57;
 }
