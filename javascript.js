@@ -236,3 +236,36 @@ behavior:"smooth"
 });
 
 };
+const botones = document.querySelectorAll(".acordeon-btn");
+
+botones.forEach((boton) => {
+
+    boton.addEventListener("click", () => {
+
+        const contenido = boton.nextElementSibling;
+
+        const abierto = contenido.style.maxHeight;
+
+        document.querySelectorAll(".contenido").forEach((item) => {
+
+            item.style.maxHeight = null;
+
+        });
+
+        document.querySelectorAll(".acordeon-btn span").forEach((icono) => {
+
+            icono.innerHTML = "+";
+
+        });
+
+        if (!abierto) {
+
+            contenido.style.maxHeight = contenido.scrollHeight + "px";
+
+            boton.querySelector("span").innerHTML = "−";
+
+        }
+
+    });
+
+});
