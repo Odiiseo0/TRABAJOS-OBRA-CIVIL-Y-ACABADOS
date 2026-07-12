@@ -1,4 +1,6 @@
-/*================ CONFIGURACIÓN GENERAL =================*/
+/*==========================
+     CONFIGURACIÓN GENERAL
+===========================*/
 
 *{
 
@@ -17,14 +19,13 @@ html{
 }
 
 
-
 body{
 
-    background:#ffffff;
+    background:#fff;
     color:#222;
+    overflow-x:hidden;
 
 }
-
 
 
 a{
@@ -34,32 +35,123 @@ a{
 }
 
 
-
 img{
 
     max-width:100%;
+    display:block;
+
+}
+
+
+/*==========================
+        COLORES
+===========================*/
+
+:root{
+
+    --azul:#1F3F7F;
+
+    --azul-oscuro:#0D2C5A;
+
+    --amarillo:#F5A623;
+
+    --verde:#25D366;
+
+    --gris:#f5f5f5;
 
 }
 
 
 
+/*==========================
+        SECCIONES
+===========================*/
+
+section{
+
+    padding:100px 8%;
+
+}
+/*==========================
+          TOPBAR
+===========================*/
+
+.topbar{
+
+    width:100%;
+
+    background:var(--azul-oscuro);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:10px 8%;
+
+    font-size:14px;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
 
 
-/*================ HEADER =================*/
+.topbar div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+
+.topbar i{
+
+    color:var(--amarillo);
+
+}
+
+
+
+/*==========================
+          HEADER
+===========================*/
 
 
 .header{
 
     width:100%;
-    height:80px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+
+    height:85px;
+
     padding:0 8%;
-    background:#111;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
     position:fixed;
-    top:0;
+
+    top:38px;
+
+    left:0;
+
     z-index:1000;
+
+    background:rgba(15,15,15,.90);
+
+    backdrop-filter:blur(12px);
+
+    transition:.4s;
 
 }
 
@@ -67,17 +159,31 @@ img{
 
 .logo img{
 
-    width:65px;
+    width:75px;
+
+    transition:.3s;
 
 }
+
+
+
+.logo img:hover{
+
+    transform:scale(1.08);
+
+}
+
+
 
 
 
 nav ul{
 
     display:flex;
-    gap:35px;
+
     list-style:none;
+
+    gap:35px;
 
 }
 
@@ -86,8 +192,13 @@ nav ul{
 nav ul li a{
 
     color:white;
+
     font-size:15px;
-    font-weight:500;
+
+    font-weight:600;
+
+    position:relative;
+
     transition:.3s;
 
 }
@@ -96,29 +207,67 @@ nav ul li a{
 
 nav ul li a:hover{
 
-    color:#f5a623;
+    color:var(--amarillo);
 
 }
 
 
 
+nav ul li a::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+
+    left:0;
+
+    height:3px;
+
+    width:0;
+
+    background:var(--amarillo);
+
+    border-radius:20px;
+
+    transition:.3s;
+
+}
 
 
 
-/*================ HERO =================*/
+nav ul li a:hover::after{
+
+    width:100%;
+
+}
+/*==========================
+             HERO
+===========================*/
 
 
 .hero{
 
-    height:100vh;
+    min-height:100vh;
+
     background:url("fondo.jpg");
+
     background-size:cover;
+
     background-position:center;
+
     display:flex;
-    align-items:center;
+
     justify-content:center;
+
+    align-items:center;
+
     text-align:center;
+
     position:relative;
+
+    padding-top:120px;
 
 }
 
@@ -127,9 +276,24 @@ nav ul li a:hover{
 .overlay{
 
     position:absolute;
+
     width:100%;
+
     height:100%;
-    background:rgba(0,0,0,.65);
+
+    top:0;
+
+    left:0;
+
+    background:
+
+    linear-gradient(
+
+    rgba(0,0,0,.75),
+
+    rgba(0,0,0,.55)
+
+    );
 
 }
 
@@ -138,8 +302,12 @@ nav ul li a:hover{
 .hero-content{
 
     position:relative;
-    color:white;
+
     z-index:2;
+
+    color:white;
+
+    max-width:900px;
 
 }
 
@@ -147,16 +315,54 @@ nav ul li a:hover{
 
 .hero-logo{
 
-    width:130px;
-    margin-bottom:20px;
+    width:150px;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    animation:flotar 3s infinite ease-in-out;
 
 }
 
 
 
+
+@keyframes flotar{
+
+
+0%{
+
+    transform:translateY(0);
+
+}
+
+
+50%{
+
+    transform:translateY(-12px);
+
+}
+
+
+100%{
+
+    transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
 .hero h1{
 
-    font-size:50px;
+    font-size:55px;
+
+    line-height:1.2;
+
     font-weight:800;
 
 }
@@ -165,7 +371,7 @@ nav ul li a:hover{
 
 .hero h1 span{
 
-    color:#f5a623;
+    color:var(--amarillo);
 
 }
 
@@ -173,11 +379,15 @@ nav ul li a:hover{
 
 .hero p{
 
-    margin:20px 0;
-    font-size:18px;
+    margin:25px auto;
+
+    max-width:700px;
+
+    font-size:19px;
+
+    line-height:1.7;
 
 }
-
 
 
 
@@ -185,8 +395,12 @@ nav ul li a:hover{
 .hero-buttons{
 
     display:flex;
+
     justify-content:center;
+
     gap:20px;
+
+    flex-wrap:wrap;
 
 }
 
@@ -194,10 +408,19 @@ nav ul li a:hover{
 
 .btn{
 
-    padding:14px 30px;
-    border-radius:30px;
-    font-weight:600;
-    transition:.3s;
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    font-weight:700;
+
+    transition:.4s;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
 
 }
 
@@ -205,7 +428,8 @@ nav ul li a:hover{
 
 .principal{
 
-    background:#25D366;
+    background:var(--verde);
+
     color:white;
 
 }
@@ -215,31 +439,39 @@ nav ul li a:hover{
 .secundario{
 
     border:2px solid white;
+
     color:white;
 
 }
 
 
 
+
 .btn:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-6px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
 
 }
 
 
 
+.principal:hover{
 
+    background:#1ebe5d;
 
-
-
-/*================ TITULOS =================*/
+}
+/*==========================
+          TITULOS
+===========================*/
 
 
 .titulo{
 
     text-align:center;
-    margin-bottom:50px;
+
+    margin-bottom:60px;
 
 }
 
@@ -247,8 +479,12 @@ nav ul li a:hover{
 
 .titulo span{
 
-    color:#f5a623;
+    color:var(--amarillo);
+
+    font-size:15px;
+
     font-weight:700;
+
     letter-spacing:2px;
 
 }
@@ -257,8 +493,11 @@ nav ul li a:hover{
 
 .titulo h2{
 
-    font-size:35px;
+    font-size:38px;
+
     margin-top:10px;
+
+    color:#222;
 
 }
 
@@ -266,14 +505,14 @@ nav ul li a:hover{
 
 
 
-
-
-/*================ NOSOTROS =================*/
+/*==========================
+          NOSOTROS
+===========================*/
 
 
 .nosotros{
 
-    padding:100px 8%;
+    background:white;
 
 }
 
@@ -282,31 +521,59 @@ nav ul li a:hover{
 .contenido-nosotros{
 
     display:grid;
+
     grid-template-columns:1fr 1fr;
-    gap:50px;
+
+    gap:60px;
+
     align-items:center;
 
 }
 
 
 
+
 .texto p{
 
-    margin-bottom:20px;
-    line-height:1.8;
     font-size:17px;
+
+    line-height:1.9;
+
+    color:#555;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.texto h3{
+
+    margin-top:25px;
+
+    margin-bottom:10px;
+
+    color:var(--azul);
+
+    font-size:24px;
 
 }
 
 
 
 
+/*==========================
+       TARJETAS VALORES
+===========================*/
+
 
 .cards-info{
 
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
-    gap:20px;
+
+    gap:25px;
 
 }
 
@@ -314,11 +581,19 @@ nav ul li a:hover{
 
 .info{
 
-    padding:30px;
-    background:#f5f5f5;
+    background:#fff;
+
+    padding:35px 20px;
+
     text-align:center;
-    border-radius:15px;
-    transition:.3s;
+
+    border-radius:20px;
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.08);
+
+    transition:.4s;
 
 }
 
@@ -326,9 +601,19 @@ nav ul li a:hover{
 
 .info i{
 
-    font-size:35px;
-    color:#f5a623;
+    font-size:40px;
+
+    color:var(--amarillo);
+
     margin-bottom:15px;
+
+}
+
+
+
+.info h3{
+
+    font-size:20px;
 
 }
 
@@ -336,25 +621,35 @@ nav ul li a:hover{
 
 .info:hover{
 
-    transform:translateY(-10px);
+    transform:translateY(-12px);
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.15);
 
 }
-/*================ SERVICIOS =================*/
+/*==========================
+          SERVICIOS
+===========================*/
 
 
 .servicios{
 
-    padding:100px 8%;
-    background:#f8f8f8;
+    background:#f7f7f7;
 
 }
+
 
 
 
 .contenedor-servicios{
 
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(260px,1fr));
+
     gap:30px;
 
 }
@@ -366,17 +661,47 @@ nav ul li a:hover{
 .servicio{
 
     background:white;
-    padding:35px 25px;
-    border-radius:20px;
+
+    padding:40px 25px;
+
+    border-radius:25px;
+
     text-align:center;
+
     cursor:pointer;
-    box-shadow:0 10px 25px rgba(0,0,0,.1);
-    transition:.4s;
+
     position:relative;
+
     overflow:hidden;
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.08);
+
+    transition:.4s;
 
 }
 
+
+
+
+.servicio::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:var(--amarillo);
+
+}
 
 
 
@@ -384,19 +709,23 @@ nav ul li a:hover{
 .servicio i{
 
     font-size:45px;
-    color:#f5a623;
+
+    color:var(--azul);
+
     margin-bottom:20px;
+
+    transition:.4s;
 
 }
 
 
 
 
-
 .servicio h3{
 
-    font-size:22px;
-    margin-bottom:10px;
+    font-size:21px;
+
+    color:#222;
 
 }
 
@@ -408,251 +737,17 @@ nav ul li a:hover{
 
     transform:translateY(-10px);
 
-}
+    box-shadow:
 
-
-
-
-
-.info-servicio{
-
-    max-height:0;
-    overflow:hidden;
-    transition:.5s;
-    margin-top:15px;
+    0 20px 40px rgba(0,0,0,.15);
 
 }
 
 
 
+.servicio:hover i{
 
-
-.info-servicio p{
-
-    font-size:14px;
-    line-height:1.8;
-    color:#555;
-
-}
-
-
-
-
-
-.servicio.activo .info-servicio{
-
-    max-height:300px;
-
-}
-
-
-
-
-
-
-
-
-/*================ GALERÍA =================*/
-
-
-.proyectos{
-
-    padding:100px 8%;
-
-}
-
-
-
-.galeria{
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-
-}
-
-
-
-
-
-
-
-
-/*================ CONTACTO =================*/
-
-
-.contacto{
-
-    padding:100px 8%;
-    background:#111;
-    color:white;
-    text-align:center;
-
-}
-
-
-
-.datos{
-
-    display:flex;
-    justify-content:center;
-    gap:50px;
-    flex-wrap:wrap;
-    margin-bottom:40px;
-
-}
-
-
-
-
-.datos div{
-
-    min-width:200px;
-
-}
-
-
-
-.datos i{
-
-    font-size:35px;
-    color:#f5a623;
-    margin-bottom:15px;
-
-}
-
-
-
-
-.datos p{
-
-    margin:5px;
-
-}
-
-
-
-
-
-
-.btn-contacto{
-
-    display:inline-block;
-    padding:15px 35px;
-    background:#25D366;
-    color:white;
-    border-radius:30px;
-    font-weight:600;
-    transition:.3s;
-
-}
-
-
-
-
-.btn-contacto:hover{
-
-    transform:scale(1.05);
-
-}
-/*================ FOOTER =================*/
-
-
-footer{
-
-    background:#0b0b0b;
-    color:white;
-    text-align:center;
-    padding:50px 8%;
-
-}
-
-
-
-footer img{
-
-    width:90px;
-    margin-bottom:20px;
-
-}
-
-
-
-footer h3{
-
-    font-size:24px;
-    margin-bottom:15px;
-
-}
-
-
-
-footer p{
-
-    color:#ccc;
-    margin-bottom:20px;
-
-}
-
-
-
-.footer-links a{
-
-    color:#f5a623;
-    font-weight:600;
-    transition:.3s;
-
-}
-
-
-
-.footer-links a:hover{
-
-    color:white;
-
-}
-
-
-
-footer small{
-
-    display:block;
-    margin-top:25px;
-    color:#777;
-
-}
-
-
-
-
-
-
-/*================ WHATSAPP FLOTANTE =================*/
-
-
-.whatsapp{
-
-    position:fixed;
-    right:25px;
-    bottom:25px;
-    width:60px;
-    height:60px;
-    background:#25D366;
-    color:white;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:32px;
-    z-index:999;
-    box-shadow:0 10px 25px rgba(0,0,0,.3);
-    transition:.3s;
-
-}
-
-
-
-.whatsapp:hover{
+    color:var(--amarillo);
 
     transform:scale(1.1);
 
@@ -664,264 +759,59 @@ footer small{
 
 
 
-/*================ BOTÓN GALERÍA =================*/
+/*==========================
+     INFORMACIÓN SERVICIO
+===========================*/
 
 
-.btn-cotizar{
+.info-servicio{
 
-    display:inline-block;
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
     margin-top:20px;
-    padding:12px 25px;
-    background:#25D366;
-    color:white;
-    border-radius:25px;
-    font-weight:600;
+
+    transition:
+
+    max-height .5s ease,
+
+    opacity .5s ease;
 
 }
 
 
 
-.card{
-
-    background:white;
-    padding:25px;
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.1);
-
-}
-
-
-
-.card h3{
-
-    margin-bottom:20px;
-
-}
-
-
-
-.carrusel-img{
-
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:15px;
-    cursor:pointer;
-    margin-bottom:10px;
-
-}
-
-
-
-
-
-
-
-/*================ RESPONSIVE =================*/
-
-
-@media(max-width:900px){
-
-
-.header{
-
-    padding:15px 5%;
-
-}
-
-
-nav ul{
-
-    gap:15px;
-
-}
-
-
-.hero h1{
-
-    font-size:35px;
-
-}
-
-
-.contenido-nosotros{
-
-    grid-template-columns:1fr;
-
-}
-
-
-}
-
-
-
-@media(max-width:600px){
-
-
-.header{
-
-    height:auto;
-    flex-direction:column;
-    gap:15px;
-
-}
-
-
-
-nav ul{
-
-    flex-wrap:wrap;
-    justify-content:center;
-
-}
-
-
-
-.hero{
-
-    height:100vh;
-
-}
-
-
-
-.hero h1{
-
-    font-size:28px;
-
-}
-
-
-
-.hero p{
-
-    font-size:15px;
-
-}
-
-
-
-.hero-buttons{
-
-    flex-direction:column;
-
-}
-
-
-
-.titulo h2{
-
-    font-size:28px;
-
-}
-
-
-
-.cards-info{
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.datos{
-
-    flex-direction:column;
-    gap:30px;
-
-}
-
-
-
-}
-/*================ POR QUÉ ELEGIRNOS =================*/
-
-
-.porque{
-
-    padding:100px 8%;
-    background:#f8f8f8;
-
-}
-
-
-
-.contenedor-porque{
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-
-}
-
-
-
-
-.porque-card{
-
-    background:white;
-    padding:35px 25px;
-    text-align:center;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,.1);
-    transition:.4s;
-
-}
-
-
-
-
-.porque-card i{
-
-    font-size:45px;
-    color:#f5a623;
-    margin-bottom:20px;
-
-}
-
-
-
-
-.porque-card h3{
-
-    font-size:20px;
-    margin-bottom:15px;
-
-}
-
-
-
-
-.porque-card p{
+.info-servicio p{
 
     color:#666;
-    line-height:1.7;
+
+    font-size:14px;
+
+    line-height:1.8;
 
 }
 
 
 
 
-.porque-card:hover{
 
-    transform:translateY(-10px);
+.servicio.activo .info-servicio{
+
+    max-height:300px;
+
+    opacity:1;
 
 }
-@media(max-width:600px){
-
-    .porque{
-
-        padding:70px 5%;
-
-    }
 
 
-    .porque-card{
 
-        padding:30px 20px;
 
-    }
+
+.servicio.activo{
+
+    border:2px solid var(--amarillo);
 
 }
