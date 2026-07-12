@@ -1766,3 +1766,23 @@ footer h3{
     will-change:transform;
 
 }
+/*==========================
+ ANIMACIÓN SECCIONES
+===========================*/
+
+
+section{
+
+    opacity:1;
+    transform:none;
+    transition:.8s ease;
+
+}
+
+
+section.mostrar{
+
+    opacity:1;
+    transform:translateY(0);
+
+}
