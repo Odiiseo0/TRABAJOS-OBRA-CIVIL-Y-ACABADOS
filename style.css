@@ -1071,7 +1071,7 @@ nav ul li a:hover::after{
 
     display:none;
 
-    animation:entradaFoto .8s ease;
+    animation:entradaFoto 1.5s ease;
 
 }
 
