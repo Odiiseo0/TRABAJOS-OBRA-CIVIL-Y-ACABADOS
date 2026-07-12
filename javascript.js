@@ -369,7 +369,7 @@ header.style.boxShadow="none";
 ===========================*/
 
 
-const observer=new IntersectionObserver((entries)=>{
+const observer = new IntersectionObserver((entries)=>{
 
 
 entries.forEach(entry=>{
@@ -378,33 +378,23 @@ entries.forEach(entry=>{
 if(entry.isIntersecting){
 
 
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0)";
+entry.target.classList.add("mostrar");
 
 
 }
 
 
-
 });
 
 
+},{
+threshold:0.15
+
 });
-
-
 
 
 
 document.querySelectorAll("section").forEach(sec=>{
-
-
-sec.style.opacity="0";
-
-sec.style.transform="translateY(50px)";
-
-sec.style.transition=".8s";
-
 
 
 observer.observe(sec);
