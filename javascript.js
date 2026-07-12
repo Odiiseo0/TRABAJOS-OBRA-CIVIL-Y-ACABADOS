@@ -42,6 +42,9 @@ fotos:[
 
 
 
+
+
+
 /*==========================
         CATALOGO
 ===========================*/
@@ -78,7 +81,6 @@ imagenes+=`
 class="carrusel-img"
 alt="${servicio.titulo}">
 
-
 `;
 
 
@@ -89,7 +91,7 @@ alt="${servicio.titulo}">
 
 
 
-catalogo.innerHTML+=`
+catalogo.innerHTML += `
 
 
 <div class="card">
@@ -134,9 +136,7 @@ Solicitar Cotización
 });
 
 
-
 }
-
 
 
 
@@ -147,8 +147,9 @@ cargarCatalogo();
 
 
 
+
 /*==========================
-    SERVICIOS DESPLEGABLES
+   SERVICIOS DESPLEGABLES
 ===========================*/
 
 
@@ -156,16 +157,14 @@ function mostrarServicio(elemento){
 
 
 
+const abierto = elemento.classList.contains("activo");
+
+
+
 document.querySelectorAll(".servicio").forEach(servicio=>{
 
 
-if(servicio !== elemento){
-
-
 servicio.classList.remove("activo");
-
-
-}
 
 
 });
@@ -173,7 +172,13 @@ servicio.classList.remove("activo");
 
 
 
-elemento.classList.toggle("activo");
+if(!abierto){
+
+
+elemento.classList.add("activo");
+
+
+}
 
 
 
@@ -185,6 +190,9 @@ elemento.classList.toggle("activo");
 
 const header=document.querySelector(".header");
 
+
+
+if(header){
 
 
 window.addEventListener("scroll",()=>{
@@ -219,6 +227,10 @@ header.style.boxShadow="none";
 });
 
 
+}
+
+
+
 
 
 
@@ -229,8 +241,7 @@ header.style.boxShadow="none";
 ===========================*/
 
 
-
-const observer=new IntersectionObserver((entries)=>{
+const observer = new IntersectionObserver((entries)=>{
 
 
 entries.forEach(entry=>{
@@ -244,7 +255,6 @@ entry.target.style.opacity="1";
 entry.target.style.transform="translateY(0px)";
 
 
-
 }
 
 
@@ -252,8 +262,8 @@ entry.target.style.transform="translateY(0px)";
 });
 
 
-
 });
+
 
 
 
@@ -263,12 +273,9 @@ entry.target.style.transform="translateY(0px)";
 document.querySelectorAll("section").forEach(sec=>{
 
 
-
 sec.style.opacity="0";
 
-
 sec.style.transform="translateY(70px)";
-
 
 sec.style.transition=".9s";
 
@@ -288,6 +295,7 @@ document.addEventListener("click",(e)=>{
 
 
 if(e.target.classList.contains("carrusel-img")){
+
 
 
 const fondo=document.createElement("div");
@@ -315,6 +323,7 @@ fondo.style.alignItems="center";
 fondo.style.cursor="pointer";
 
 fondo.style.zIndex="9999";
+
 
 
 
@@ -348,13 +357,14 @@ document.body.appendChild(fondo);
 
 
 
+
 fondo.onclick=()=>{
 
 
 fondo.remove();
 
 
-}
+};
 
 
 
@@ -363,6 +373,7 @@ fondo.remove();
 
 
 });
+
 
 
 
@@ -426,12 +437,10 @@ document.body.appendChild(arriba);
 window.addEventListener("scroll",()=>{
 
 
-
-if(window.scrollY>500){
+if(window.scrollY > 500){
 
 
 arriba.style.display="block";
-
 
 
 }else{
@@ -455,19 +464,13 @@ arriba.style.display="none";
 arriba.onclick=()=>{
 
 
-
 window.scrollTo({
-
 
 top:0,
 
-
 behavior:"smooth"
 
-
-
 });
-
 
 
 };
