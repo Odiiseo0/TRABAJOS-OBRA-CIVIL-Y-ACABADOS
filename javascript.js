@@ -229,7 +229,7 @@ imagenes[posicion].classList.add("activa");
 
 
 
-},3000);
+},5000);
 
 
 
