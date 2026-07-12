@@ -3,51 +3,58 @@
 ===========================*/
 
 
-const servicios = [
+const serviciosGaleria = [
 
 {
-    titulo:"Pisos y Recubrimientos",
 
-    fotos:[
+titulo:"Pisos y Recubrimientos",
 
-        "IMG_4872.jpeg",
-        "IMG_4873.jpeg",
-        "IMG_4874.jpeg",
-        "IMG_4875.jpeg",
-        "IMG_4877.jpeg"
+fotos:[
 
-    ]
+"IMG_4872.jpeg",
+"IMG_4873.jpeg",
+"IMG_4874.jpeg",
+"IMG_4875.jpeg",
+"IMG_4877.jpeg"
+
+]
 
 },
 
 
+
 {
-    titulo:"Pintura y Texturizados",
 
-    fotos:[
+titulo:"Pintura y Acabados",
 
-        "IMG_4878.jpeg",
-        "IMG_4879.jpeg",
-        "IMG_4880.jpeg",
-        "IMG_4881.jpeg"
+fotos:[
 
-    ]
+"IMG_4878.jpeg",
+"IMG_4879.jpeg",
+"IMG_4880.jpeg",
+"IMG_4881.jpeg"
+
+]
 
 },
 
 
-{
-    titulo:"Topografía",
 
-    fotos:[]
+{
+
+titulo:"Topografía",
+
+fotos:[]
 
 },
 
 
-{
-    titulo:"Tablaroca y Plafones",
 
-    fotos:[]
+{
+
+titulo:"Tablaroca y Plafones",
+
+fotos:[]
 
 }
 
@@ -58,6 +65,8 @@ const servicios = [
 
 
 const catalogo = document.getElementById("catalogo");
+
+
 
 
 
@@ -72,7 +81,7 @@ catalogo.innerHTML="";
 
 
 
-servicios.forEach((servicio,index)=>{
+serviciosGaleria.forEach((servicio,index)=>{
 
 
 let imagenes="";
@@ -128,7 +137,7 @@ catalogo.innerHTML += `
 
 
 <div class="carrusel"
-data-servicio="${index}">
+data-id="${index}">
 
 
 ${imagenes}
@@ -140,8 +149,11 @@ ${imagenes}
 
 
 <a 
+
 href="https://wa.me/528188683570"
+
 target="_blank"
+
 class="btn-cotizar">
 
 
@@ -164,7 +176,9 @@ Solicitar Cotización
 });
 
 
+
 }
+
 
 
 cargarCatalogo();
@@ -183,13 +197,11 @@ carruseles.forEach(carrusel=>{
 const imagenes = carrusel.querySelectorAll(".carrusel-img");
 
 
-
 let posicion = 0;
 
 
 
 if(imagenes.length > 1){
-
 
 
 setInterval(()=>{
@@ -205,7 +217,9 @@ posicion++;
 
 if(posicion >= imagenes.length){
 
-posicion=0;
+
+posicion = 0;
+
 
 }
 
@@ -224,6 +238,13 @@ imagenes[posicion].classList.add("activa");
 
 
 });
+
+
+
+
+
+
+
 /*==========================
       IMAGEN GRANDE
 ===========================*/
@@ -235,34 +256,33 @@ document.addEventListener("click",(e)=>{
 if(e.target.classList.contains("carrusel-img")){
 
 
-const fondo=document.createElement("div");
+const visor = document.createElement("div");
+
+
+visor.className="visor-imagen";
 
 
 
-fondo.className="visor-imagen";
+const imagen = document.createElement("img");
 
-
-
-const imagen=document.createElement("img");
 
 
 imagen.src=e.target.src;
 
 
 
-fondo.appendChild(imagen);
+visor.appendChild(imagen);
 
 
 
-document.body.appendChild(fondo);
+document.body.appendChild(visor);
 
 
 
+visor.onclick=()=>{
 
-fondo.onclick=()=>{
 
-
-fondo.remove();
+visor.remove();
 
 
 };
@@ -279,12 +299,16 @@ fondo.remove();
 
 
 
+
+
+
 /*==========================
    SERVICIOS DESPLEGABLES
 ===========================*/
 
 
 function mostrarServicio(elemento){
+
 
 
 const abierto = elemento.classList.contains("activo");
@@ -317,6 +341,9 @@ elemento.classList.add("activo");
 
 
 
+
+
+
 /*==========================
        HEADER SCROLL
 ===========================*/
@@ -337,14 +364,15 @@ if(window.scrollY > 80){
 
 header.style.background="#1F3F7F";
 
-header.style.boxShadow="0 10px 25px rgba(0,0,0,.25)";
 
+header.style.boxShadow="0 10px 25px rgba(0,0,0,.25)";
 
 
 }else{
 
 
 header.style.background="rgba(15,15,15,.90)";
+
 
 header.style.boxShadow="none";
 
@@ -357,13 +385,6 @@ header.style.boxShadow="none";
 
 
 }
-
-
-
-
-
-
-
 /*==========================
      ANIMACIÓN SCROLL
 ===========================*/
@@ -378,7 +399,9 @@ entries.forEach(entry=>{
 if(entry.isIntersecting){
 
 
-entry.target.classList.add("mostrar");
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
 
 
 }
@@ -387,22 +410,34 @@ entry.target.classList.add("mostrar");
 });
 
 
-},{
-threshold:0.15
-
 });
+
 
 
 
 document.querySelectorAll("section").forEach(sec=>{
 
 
+sec.style.opacity="0";
+
+sec.style.transform="translateY(50px)";
+
+sec.style.transition=".8s ease";
+
+
 observer.observe(sec);
 
 
 });
+
+
+
+
+
+
+
 /*==========================
-    VISOR DE IMÁGENES
+      VISOR ANIMADO
 ===========================*/
 
 
@@ -438,7 +473,6 @@ cursor:pointer;
 
 animation:aparecer .3s ease;
 
-
 }
 
 
@@ -451,10 +485,7 @@ max-height:90%;
 
 border-radius:20px;
 
-box-shadow:0 20px 50px rgba(0,0,0,.5);
-
 animation:zoom .3s ease;
-
 
 }
 
@@ -462,13 +493,11 @@ animation:zoom .3s ease;
 
 @keyframes aparecer{
 
-
 from{
 
 opacity:0;
 
 }
-
 
 to{
 
@@ -476,13 +505,12 @@ opacity:1;
 
 }
 
-
 }
 
 
 
-@keyframes zoom{
 
+@keyframes zoom{
 
 from{
 
@@ -490,13 +518,11 @@ transform:scale(.8);
 
 }
 
-
 to{
 
 transform:scale(1);
 
 }
-
 
 }
 
@@ -515,20 +541,17 @@ document.head.appendChild(estiloVisor);
 
 
 /*==========================
-    BOTÓN VOLVER ARRIBA
+    BOTÓN SUBIR ARRIBA
 ===========================*/
 
 
 const arriba=document.createElement("button");
 
 
-
 arriba.innerHTML="⬆";
 
 
-
 arriba.className="btn-arriba";
-
 
 
 document.body.appendChild(arriba);
@@ -583,13 +606,8 @@ behavior:"smooth"
 
 
 
-/*==========================
-       ESTILO BOTÓN ARRIBA
-===========================*/
-
 
 const estiloBoton=document.createElement("style");
-
 
 
 estiloBoton.innerHTML=`
@@ -628,8 +646,8 @@ pointer-events:none;
 
 transition:.3s;
 
-
 }
+
 
 
 
@@ -642,6 +660,7 @@ pointer-events:auto;
 
 
 }
+
 
 
 
