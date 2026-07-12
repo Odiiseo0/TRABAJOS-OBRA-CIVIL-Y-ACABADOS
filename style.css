@@ -951,3 +951,74 @@ footer small{
 }
 
 }
+.acordeon{
+
+    max-width:900px;
+    margin:auto;
+
+}
+
+.item{
+
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    margin-bottom:20px;
+    box-shadow:var(--sombra);
+
+}
+
+.acordeon-btn{
+
+    width:100%;
+    border:none;
+    background:#1F3F7F;
+    color:white;
+    padding:22px;
+
+    font-size:22px;
+    font-weight:600;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    cursor:pointer;
+
+}
+
+.acordeon-btn span{
+
+    font-size:30px;
+
+}
+
+.contenido{
+
+    max-height:0;
+    overflow:hidden;
+
+    transition:.4s;
+
+    padding:0 25px;
+
+}
+
+.contenido p{
+
+    margin-top:20px;
+    line-height:30px;
+
+}
+
+.contenido ul{
+
+    margin:20px;
+
+}
+
+.contenido li{
+
+    margin-bottom:12px;
+
+}
