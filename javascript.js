@@ -1,39 +1,53 @@
 /*==========================
-        SERVICIOS GALERÍA
+        GALERÍA CARRUSEL
 ===========================*/
 
 
 const servicios = [
 
 {
+    titulo:"Pisos y Recubrimientos",
 
-titulo:"Aplanados y Yeso",
+    fotos:[
 
-fotos:[
+        "IMG_4872.jpeg",
+        "IMG_4873.jpeg",
+        "IMG_4874.jpeg",
+        "IMG_4875.jpeg",
+        "IMG_4877.jpeg"
 
-"IMG_4872.jpeg",
-"IMG_4873.jpeg",
-"IMG_4874.jpeg",
-"IMG_4875.jpeg",
-"IMG_4877.jpeg"
-
-]
+    ]
 
 },
 
 
 {
+    titulo:"Pintura y Texturizados",
 
-titulo:"Pintura y Texturizados",
+    fotos:[
 
-fotos:[
+        "IMG_4878.jpeg",
+        "IMG_4879.jpeg",
+        "IMG_4880.jpeg",
+        "IMG_4881.jpeg"
 
-"IMG_4878.jpeg",
-"IMG_4879.jpeg",
-"IMG_4880.jpeg",
-"IMG_4881.jpeg"
+    ]
 
-]
+},
+
+
+{
+    titulo:"Topografía",
+
+    fotos:[]
+
+},
+
+
+{
+    titulo:"Tablaroca y Plafones",
+
+    fotos:[]
 
 }
 
@@ -43,14 +57,7 @@ fotos:[
 
 
 
-
-
-/*==========================
-        CATALOGO
-===========================*/
-
-
-const catalogo=document.getElementById("catalogo");
+const catalogo = document.getElementById("catalogo");
 
 
 
@@ -65,21 +72,26 @@ catalogo.innerHTML="";
 
 
 
-servicios.forEach(servicio=>{
+servicios.forEach((servicio,index)=>{
 
 
 let imagenes="";
 
 
 
-servicio.fotos.forEach(foto=>{
+if(servicio.fotos.length > 0){
 
 
-imagenes+=`
+servicio.fotos.forEach((foto,i)=>{
 
-<img src="${foto}"
-class="carrusel-img"
+
+imagenes += `
+
+<img 
+src="${foto}"
+class="carrusel-img ${i===0 ? "activa":""}"
 alt="${servicio.titulo}">
+
 
 `;
 
@@ -88,6 +100,20 @@ alt="${servicio.titulo}">
 });
 
 
+}else{
+
+
+imagenes=`
+
+<p class="sin-fotos">
+
+Fotos próximamente
+
+</p>
+
+`;
+
+}
 
 
 
@@ -101,23 +127,25 @@ catalogo.innerHTML += `
 
 
 
-<div class="carrusel">
+<div class="carrusel"
+data-servicio="${index}">
+
 
 ${imagenes}
+
 
 </div>
 
 
 
 
-<a
+<a 
 href="https://wa.me/528188683570"
 target="_blank"
 class="btn-cotizar">
 
 
 <i class="fa-brands fa-whatsapp"></i>
-
 
 Solicitar Cotización
 
@@ -139,149 +167,59 @@ Solicitar Cotización
 }
 
 
-
 cargarCatalogo();
-
-
-
-
-
-
-
 /*==========================
-   SERVICIOS DESPLEGABLES
+      CARRUSEL AUTOMÁTICO
 ===========================*/
 
 
-function mostrarServicio(elemento){
+const carruseles = document.querySelectorAll(".carrusel");
 
 
 
-const abierto = elemento.classList.contains("activo");
+carruseles.forEach(carrusel=>{
+
+
+const imagenes = carrusel.querySelectorAll(".carrusel-img");
 
 
 
-document.querySelectorAll(".servicio").forEach(servicio=>{
-
-
-servicio.classList.remove("activo");
-
-
-});
+let posicion = 0;
 
 
 
-
-if(!abierto){
-
-
-elemento.classList.add("activo");
-
-
-}
+if(imagenes.length > 1){
 
 
 
-}
-/*==========================
-      HEADER SCROLL
-===========================*/
+setInterval(()=>{
 
 
-const header=document.querySelector(".header");
+imagenes[posicion].classList.remove("activa");
 
 
 
-if(header){
-
-
-window.addEventListener("scroll",()=>{
-
-
-if(window.scrollY > 80){
-
-
-header.style.background="#1F3F7F";
-
-header.style.padding="12px 8%";
-
-header.style.boxShadow="0 10px 25px rgba(0,0,0,.25)";
+posicion++;
 
 
 
-}else{
+if(posicion >= imagenes.length){
 
-
-header.style.background="rgba(0,0,0,.35)";
-
-header.style.padding="18px 8%";
-
-header.style.boxShadow="none";
-
-
+posicion=0;
 
 }
 
 
 
-});
+imagenes[posicion].classList.add("activa");
+
+
+
+},3000);
+
 
 
 }
-
-
-
-
-
-
-
-
-/*==========================
-    ANIMACIÓN SCROLL
-===========================*/
-
-
-const observer = new IntersectionObserver((entries)=>{
-
-
-entries.forEach(entry=>{
-
-
-if(entry.isIntersecting){
-
-
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0px)";
-
-
-}
-
-
-
-});
-
-
-});
-
-
-
-
-
-
-
-document.querySelectorAll("section").forEach(sec=>{
-
-
-sec.style.opacity="0";
-
-sec.style.transform="translateY(70px)";
-
-sec.style.transition=".9s";
-
-
-
-observer.observe(sec);
 
 
 
@@ -297,53 +235,18 @@ document.addEventListener("click",(e)=>{
 if(e.target.classList.contains("carrusel-img")){
 
 
-
 const fondo=document.createElement("div");
 
 
 
-fondo.style.position="fixed";
-
-fondo.style.top="0";
-
-fondo.style.left="0";
-
-fondo.style.width="100%";
-
-fondo.style.height="100%";
-
-fondo.style.background="rgba(0,0,0,.9)";
-
-fondo.style.display="flex";
-
-fondo.style.justifyContent="center";
-
-fondo.style.alignItems="center";
-
-fondo.style.cursor="pointer";
-
-fondo.style.zIndex="9999";
-
-
-
+fondo.className="visor-imagen";
 
 
 
 const imagen=document.createElement("img");
 
 
-
 imagen.src=e.target.src;
-
-
-
-imagen.style.maxWidth="90%";
-
-imagen.style.maxHeight="90%";
-
-imagen.style.borderRadius="20px";
-
-
 
 
 
@@ -352,8 +255,6 @@ fondo.appendChild(imagen);
 
 
 document.body.appendChild(fondo);
-
-
 
 
 
@@ -378,14 +279,254 @@ fondo.remove();
 
 
 
+/*==========================
+   SERVICIOS DESPLEGABLES
+===========================*/
+
+
+function mostrarServicio(elemento){
+
+
+const abierto = elemento.classList.contains("activo");
+
+
+
+document.querySelectorAll(".servicio").forEach(servicio=>{
+
+
+servicio.classList.remove("activo");
+
+
+});
+
+
+
+if(!abierto){
+
+
+elemento.classList.add("activo");
+
+
+}
+
+
+
+}
+
 
 
 
 
 /*==========================
-    BOTON VOLVER ARRIBA
+       HEADER SCROLL
 ===========================*/
 
+
+const header=document.querySelector(".header");
+
+
+
+if(header){
+
+
+window.addEventListener("scroll",()=>{
+
+
+if(window.scrollY > 80){
+
+
+header.style.background="#1F3F7F";
+
+header.style.boxShadow="0 10px 25px rgba(0,0,0,.25)";
+
+
+
+}else{
+
+
+header.style.background="rgba(15,15,15,.90)";
+
+header.style.boxShadow="none";
+
+
+}
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+/*==========================
+     ANIMACIÓN SCROLL
+===========================*/
+
+
+const observer=new IntersectionObserver((entries)=>{
+
+
+entries.forEach(entry=>{
+
+
+if(entry.isIntersecting){
+
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
+
+
+}
+
+
+
+});
+
+
+});
+
+
+
+
+
+document.querySelectorAll("section").forEach(sec=>{
+
+
+sec.style.opacity="0";
+
+sec.style.transform="translateY(50px)";
+
+sec.style.transition=".8s";
+
+
+
+observer.observe(sec);
+
+
+});
+/*==========================
+    VISOR DE IMÁGENES
+===========================*/
+
+
+const estiloVisor=document.createElement("style");
+
+
+estiloVisor.innerHTML=`
+
+
+.visor-imagen{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.92);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+cursor:pointer;
+
+animation:aparecer .3s ease;
+
+
+}
+
+
+
+.visor-imagen img{
+
+max-width:90%;
+
+max-height:90%;
+
+border-radius:20px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.5);
+
+animation:zoom .3s ease;
+
+
+}
+
+
+
+@keyframes aparecer{
+
+
+from{
+
+opacity:0;
+
+}
+
+
+to{
+
+opacity:1;
+
+}
+
+
+}
+
+
+
+@keyframes zoom{
+
+
+from{
+
+transform:scale(.8);
+
+}
+
+
+to{
+
+transform:scale(1);
+
+}
+
+
+}
+
+
+
+`;
+
+
+
+document.head.appendChild(estiloVisor);
+
+
+
+
+
+
+
+/*==========================
+    BOTÓN VOLVER ARRIBA
+===========================*/
 
 
 const arriba=document.createElement("button");
@@ -396,39 +537,11 @@ arriba.innerHTML="⬆";
 
 
 
-arriba.style.position="fixed";
-
-arriba.style.bottom="25px";
-
-arriba.style.right="95px";
-
-arriba.style.width="55px";
-
-arriba.style.height="55px";
-
-arriba.style.borderRadius="50%";
-
-arriba.style.border="none";
-
-arriba.style.background="#1F3F7F";
-
-arriba.style.color="white";
-
-arriba.style.fontSize="22px";
-
-arriba.style.cursor="pointer";
-
-arriba.style.display="none";
-
-arriba.style.zIndex="999";
-
-
+arriba.className="btn-arriba";
 
 
 
 document.body.appendChild(arriba);
-
-
 
 
 
@@ -440,13 +553,13 @@ window.addEventListener("scroll",()=>{
 if(window.scrollY > 500){
 
 
-arriba.style.display="block";
+arriba.classList.add("mostrar");
 
 
 }else{
 
 
-arriba.style.display="none";
+arriba.classList.remove("mostrar");
 
 
 }
@@ -454,7 +567,6 @@ arriba.style.display="none";
 
 
 });
-
 
 
 
@@ -474,3 +586,87 @@ behavior:"smooth"
 
 
 };
+
+
+
+
+
+
+
+/*==========================
+       ESTILO BOTÓN ARRIBA
+===========================*/
+
+
+const estiloBoton=document.createElement("style");
+
+
+
+estiloBoton.innerHTML=`
+
+
+.btn-arriba{
+
+
+position:fixed;
+
+right:95px;
+
+bottom:25px;
+
+width:55px;
+
+height:55px;
+
+border:none;
+
+border-radius:50%;
+
+background:#1F3F7F;
+
+color:white;
+
+font-size:22px;
+
+cursor:pointer;
+
+z-index:999;
+
+opacity:0;
+
+pointer-events:none;
+
+transition:.3s;
+
+
+}
+
+
+
+.btn-arriba.mostrar{
+
+
+opacity:1;
+
+pointer-events:auto;
+
+
+}
+
+
+
+.btn-arriba:hover{
+
+
+transform:translateY(-5px);
+
+
+}
+
+
+
+`;
+
+
+
+document.head.appendChild(estiloBoton);
