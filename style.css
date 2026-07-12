@@ -555,3 +555,284 @@ nav ul li a:hover{
     transform:scale(1.05);
 
 }
+/*================ FOOTER =================*/
+
+
+footer{
+
+    background:#0b0b0b;
+    color:white;
+    text-align:center;
+    padding:50px 8%;
+
+}
+
+
+
+footer img{
+
+    width:90px;
+    margin-bottom:20px;
+
+}
+
+
+
+footer h3{
+
+    font-size:24px;
+    margin-bottom:15px;
+
+}
+
+
+
+footer p{
+
+    color:#ccc;
+    margin-bottom:20px;
+
+}
+
+
+
+.footer-links a{
+
+    color:#f5a623;
+    font-weight:600;
+    transition:.3s;
+
+}
+
+
+
+.footer-links a:hover{
+
+    color:white;
+
+}
+
+
+
+footer small{
+
+    display:block;
+    margin-top:25px;
+    color:#777;
+
+}
+
+
+
+
+
+
+/*================ WHATSAPP FLOTANTE =================*/
+
+
+.whatsapp{
+
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:32px;
+    z-index:999;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+    transition:.3s;
+
+}
+
+
+
+.whatsapp:hover{
+
+    transform:scale(1.1);
+
+}
+
+
+
+
+
+
+
+/*================ BOTÓN GALERÍA =================*/
+
+
+.btn-cotizar{
+
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#25D366;
+    color:white;
+    border-radius:25px;
+    font-weight:600;
+
+}
+
+
+
+.card{
+
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+}
+
+
+
+.card h3{
+
+    margin-bottom:20px;
+
+}
+
+
+
+.carrusel-img{
+
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:15px;
+    cursor:pointer;
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+
+
+/*================ RESPONSIVE =================*/
+
+
+@media(max-width:900px){
+
+
+.header{
+
+    padding:15px 5%;
+
+}
+
+
+nav ul{
+
+    gap:15px;
+
+}
+
+
+.hero h1{
+
+    font-size:35px;
+
+}
+
+
+.contenido-nosotros{
+
+    grid-template-columns:1fr;
+
+}
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+.header{
+
+    height:auto;
+    flex-direction:column;
+    gap:15px;
+
+}
+
+
+
+nav ul{
+
+    flex-wrap:wrap;
+    justify-content:center;
+
+}
+
+
+
+.hero{
+
+    height:100vh;
+
+}
+
+
+
+.hero h1{
+
+    font-size:28px;
+
+}
+
+
+
+.hero p{
+
+    font-size:15px;
+
+}
+
+
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+
+
+.titulo h2{
+
+    font-size:28px;
+
+}
+
+
+
+.cards-info{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.datos{
+
+    flex-direction:column;
+    gap:30px;
+
+}
+
+
+
+}
