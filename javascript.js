@@ -2,7 +2,6 @@
         GALERÍA CARRUSEL
 ===========================*/
 
-
 const serviciosGaleria = [
 
 {
@@ -21,8 +20,6 @@ fotos:[
 
 },
 
-
-
 {
 
 titulo:"Pintura y Acabados",
@@ -39,12 +36,8 @@ fotos:[
 
 },
 
-
-
 {
 
-
-        {
 titulo:"Albañilería",
 
 fotos:[
@@ -59,12 +52,8 @@ fotos:[
 
 },
 
-
-},
-
-
-
 {
+
 titulo:"Tablaroca y Plafones",
 
 fotos:[
@@ -77,7 +66,6 @@ fotos:[
 }
 
 ];
-
 
 
 
