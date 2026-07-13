@@ -1791,3 +1791,95 @@ section.mostrar{
     transform:translateY(0);
 
 }
+/*==========================
+     TOPOGRAFÍA DESTACADA
+===========================*/
+
+.topografia{
+
+    background:#f8f9fb;
+    padding:100px 8%;
+
+}
+
+.topografia-contenedor{
+
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:60px;
+    align-items:center;
+
+}
+
+.topografia-imagenes img{
+
+    width:100%;
+    border-radius:20px;
+    object-fit:cover;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.mini-fotos{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:20px;
+
+}
+
+.topografia-info span{
+
+    color:var(--amarillo);
+    font-weight:700;
+    letter-spacing:2px;
+
+}
+
+.topografia-info h2{
+
+    font-size:40px;
+    color:var(--azul);
+    margin:15px 0;
+
+}
+
+.topografia-info p{
+
+    color:#555;
+    line-height:1.8;
+    margin-bottom:20px;
+
+}
+
+.topografia-info ul{
+
+    list-style:none;
+    padding:0;
+    margin-bottom:30px;
+
+}
+
+.topografia-info ul li{
+
+    margin:12px 0;
+    font-size:17px;
+
+}
+
+@media(max-width:900px){
+
+.topografia-contenedor{
+
+    grid-template-columns:1fr;
+
+}
+
+.topografia-info{
+
+    text-align:center;
+
+}
+
+}
