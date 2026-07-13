@@ -42,7 +42,7 @@ titulo:"Albañilería",
 
 fotos:[
 
-"IMG_5400.jpeg",
+"IMG_5410.jpeg",
 "IMG_5401.jpeg",
 "IMG_5403.jpeg",
 "IMG_5405.jpeg",
