@@ -1897,3 +1897,10 @@ section.mostrar{
     padding-top:40px;
 
 }
+.topografia-imagenes .btn-cotizar{
+
+    display:flex;
+    width:max-content;
+    margin:25px auto 0;
+
+}
