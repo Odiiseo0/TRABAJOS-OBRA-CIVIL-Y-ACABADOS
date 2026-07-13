@@ -32,7 +32,8 @@ fotos:[
 "IMG_4878.jpeg",
 "IMG_4879.jpeg",
 "IMG_4880.jpeg",
-"IMG_4881.jpeg"
+"IMG_4881.jpeg",
+"IMG_5385.jpeg"
 
 ]
 
