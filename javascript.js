@@ -43,9 +43,24 @@ fotos:[
 
 {
 
-titulo:"Topografía",
+titulo:"Albañilería",
 
-fotos:[]
+fotos:[
+        {
+titulo:"Albañilería",
+
+fotos:[
+
+"IMG_5400.jpeg",
+"IMG_5401.jpeg",
+"IMG_5403.jpeg",
+"IMG_5405.jpeg",
+"IMG_5406.jpeg"
+
+]
+
+},
+]
 
 },
 
