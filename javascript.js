@@ -182,66 +182,6 @@ Solicitar Cotización
 
 
 cargarCatalogo();
-/*==========================
-      CARRUSEL AUTOMÁTICO
-===========================*/
-
-
-const carruseles = document.querySelectorAll(".carrusel");
-
-
-
-carruseles.forEach(carrusel=>{
-
-
-const imagenes = carrusel.querySelectorAll(".carrusel-img");
-
-
-let posicion = 0;
-
-
-
-if(imagenes.length > 1){
-
-
-setInterval(()=>{
-
-
-imagenes[posicion].classList.remove("activa");
-
-
-
-posicion++;
-
-
-
-if(posicion >= imagenes.length){
-
-
-posicion = 0;
-
-
-}
-
-
-
-imagenes[posicion].classList.add("activa");
-
-
-
-},5000);
-
-
-
-}
-
-
-
-});
-
-
-
-
 
 
 
