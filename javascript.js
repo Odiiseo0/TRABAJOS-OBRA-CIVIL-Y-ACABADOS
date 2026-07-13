@@ -43,9 +43,7 @@ fotos:[
 
 {
 
-titulo:"Albañilería",
 
-fotos:[
         {
 titulo:"Albañilería",
 
