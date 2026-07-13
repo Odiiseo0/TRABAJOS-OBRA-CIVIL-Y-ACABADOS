@@ -52,10 +52,14 @@ fotos:[]
 
 
 {
-
 titulo:"Tablaroca y Plafones",
 
-fotos:[]
+fotos:[
+
+"IMG_5390.jpeg",
+"IMG_5389.jpeg"
+
+]
 
 }
 
